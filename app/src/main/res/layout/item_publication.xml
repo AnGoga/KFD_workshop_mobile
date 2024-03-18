@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="20dp"
+    android:layout_margin="10dp"
+    app:cardElevation="7.5dp">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            tools:text="Заголовок новости"/>
+
+        <TextView
+            android:id="@+id/text_view_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            tools:text="Текст новости"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginStart="10dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@mipmap/ic_like_inactive"/>
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:text="0"/>
+
+            <ImageView
+                android:layout_marginStart="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@mipmap/ic_commentary"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
