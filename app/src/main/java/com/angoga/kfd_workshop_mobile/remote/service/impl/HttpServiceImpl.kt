@@ -1,15 +1,18 @@
 package com.angoga.kfd_workshop_mobile.remote.service.impl
 
+import android.content.Context
 import com.angoga.kfd_workshop_mobile.remote.model.request.LoginRequest
 import com.angoga.kfd_workshop_mobile.remote.model.request.PageRequest
 import com.angoga.kfd_workshop_mobile.remote.model.request.RegistrationRequest
 import io.ktor.client.*
 import io.ktor.client.request.*
 import com.angoga.kfd_workshop_mobile.remote.service.HttpService
+import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
 
 class HttpServiceImpl(
-    private val client: HttpClient
+    private val client: HttpClient,
+    private val context: Context
 ) : HttpService {
 
     // ---------------- AUTH --------------------
@@ -18,6 +21,9 @@ class HttpServiceImpl(
             setBody(request)
             headers {
                 append("Content-Type", "application/json")
+                val jwt = context.getSharedPreferences("JWT", Context.MODE_PRIVATE).getString("JWT", "")
+                if (jwt != null)
+                    append(HttpHeaders.Authorization, jwt)
             }
         }
 
