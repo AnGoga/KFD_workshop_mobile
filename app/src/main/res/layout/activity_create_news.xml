@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.screens.create_news.CreateNewsActivity">
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

@@ -11,9 +11,6 @@ class PublicationEntity(
     @ColumnInfo(name = "id")
     var id: Long,
 
-    @ColumnInfo(name = "createdAt")
-    var createdAt: LocalDateTime,
-
     @ColumnInfo(name = "title")
     var title: String,
 
