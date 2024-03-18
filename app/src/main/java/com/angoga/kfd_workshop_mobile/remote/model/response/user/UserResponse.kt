@@ -1,11 +1,11 @@
 package com.angoga.kfd_workshop_mobile.remote.model.response.user
 
-import com.angoga.kfd_workshop_mobile.remote.model.response.common.AbstractCreatedAtResponse
-import java.time.LocalDateTime
+import kotlinx.serialization.Serializable
 
-open class UserResponse(
-    id: Long,
-    createdAt: LocalDateTime,
+
+@Serializable
+class UserResponse(
+    val id: Long,
     val email: String,
     val name: String
-): AbstractCreatedAtResponse(id, createdAt)
+)

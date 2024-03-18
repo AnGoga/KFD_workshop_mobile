@@ -9,6 +9,8 @@ import org.koin.dsl.bind
 import org.koin.dsl.module
 import com.angoga.kfd_workshop_mobile.remote.service.HttpService
 import com.angoga.kfd_workshop_mobile.remote.service.impl.HttpServiceImpl
+import com.angoga.kfd_workshop_mobile.ui.screens.login.LoginViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 
 
 val networkModule = module {
@@ -24,6 +26,7 @@ val networkModule = module {
     }
 
     single { HttpServiceImpl(get()) } bind HttpService::class
+    viewModel { LoginViewModel(get()) }
 }
 
 

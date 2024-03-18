@@ -6,6 +6,7 @@ import com.angoga.kfd_workshop_mobile.remote.model.request.RegistrationRequest
 import io.ktor.client.*
 import io.ktor.client.request.*
 import com.angoga.kfd_workshop_mobile.remote.service.HttpService
+import io.ktor.http.contentType
 
 class HttpServiceImpl(
     private val client: HttpClient
@@ -13,7 +14,12 @@ class HttpServiceImpl(
 
     // ---------------- AUTH --------------------
     override suspend fun login(request: LoginRequest)
-        = client.post("$BASE_URL_PUBLIC/auth") { setBody(request) }
+        = client.post("$BASE_URL_PUBLIC/auth") {
+            setBody(request)
+            headers {
+                append("Content-Type", "application/json")
+            }
+        }
 
     override suspend fun register(request: RegistrationRequest)
         = client.post("$BASE_URL_PUBLIC/registration") { setBody(request) }
@@ -41,7 +47,7 @@ class HttpServiceImpl(
 
 
     companion object {
-        private const val BASE_URL = "http://localhost:8080/api/v1"
+        private const val BASE_URL = "http://192.168.1.3:8080/api/v1"
         private const val BASE_URL_PUBLIC = "$BASE_URL/public"
     }
 }
